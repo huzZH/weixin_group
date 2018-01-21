@@ -69,8 +69,7 @@ public class WeChatSecurity {
 	 */
 	@RequestMapping(value = "/security", method = RequestMethod.POST)
 	public void handleReqFromWeChat(HttpServletRequest request, HttpServletResponse response) {
-		
-		response.setContentType(StandardCharsets.UTF_8.toString());
-		weChatDispatcher.handleRequestFromWeChat(request);
+		response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+		weChatDispatcher.handleRequestFromWeChat(request, response);
 	}
 }
