@@ -1,4 +1,4 @@
-package com.weixin.web.common;
+package com.weixin.web.config;
 
 /**
  * 全局返回码说明
@@ -75,5 +75,11 @@ public enum GlobalStatusCode {
 	GlobalStatusCode(int code, String msg) {
 		this.code = code;
 		this.msg = msg;
+	}
+	
+	public static String getMsg(int code) {
+		
+		
+		return null;
 	}
 }

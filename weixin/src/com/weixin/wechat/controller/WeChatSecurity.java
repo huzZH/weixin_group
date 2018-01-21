@@ -2,10 +2,13 @@ package com.weixin.wechat.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +21,9 @@ import com.weixin.web.util.StringUtil;
 public class WeChatSecurity {
 
 	private Logger logger = Logger.getLogger(WeChatSecurity.class);
+	
+	@Autowired
+	private WeChatDispatcher weChatDispatcher;
 
 	/**
 	 * 验证消息是否来自微信服务器
@@ -55,6 +61,16 @@ public class WeChatSecurity {
 			logger.error("返回服务器消息 signature: " + signature + "timestamp: " + timestamp + "nonce: " + nonce + "echostr: "
 					+ echostr, e);
 		}
-
+	}
+	/**
+	 * 处理来自微信服务端的消息
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value = "/security", method = RequestMethod.POST)
+	public void handleReqFromWeChat(HttpServletRequest request, HttpServletResponse response) {
+		
+		response.setContentType(StandardCharsets.UTF_8.toString());
+		weChatDispatcher.handleRequestFromWeChat(request);
 	}
 }

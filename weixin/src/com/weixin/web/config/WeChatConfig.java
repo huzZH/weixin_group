@@ -1,6 +1,6 @@
-package com.weixin.web.common;
+package com.weixin.web.config;
 
-public class WeChatConstant {
+public class WeChatConfig {
 
 	public static String APPID = "appid";
 	

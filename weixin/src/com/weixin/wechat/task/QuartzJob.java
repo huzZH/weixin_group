@@ -1,4 +1,4 @@
-package com.weixin.wechat.quartz;
+package com.weixin.wechat.task;
 
 public class QuartzJob {
 	

@@ -3,7 +3,8 @@ package com.weixin.web.start;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.weixin.wechat.quartz.WeChatTask;
+import com.weixin.wechat.task.MenuTask;
+import com.weixin.wechat.task.WeChatTask;
 
 /**
  * WeChat容器
@@ -20,6 +21,9 @@ public class WeChatContextListener implements ServletContextListener {
 		
 		WeChatTask weChatTask = WeChatTask.getInstance();
 		weChatTask.getAccessToken();
+		
+		MenuTask menuTask = MenuTask.getInstance();
+		menuTask.initMenu();
 	}
 
 	@Override
