@@ -28,9 +28,9 @@ public class InterfaceUrlManagment {
 			GlobalConstant.interfaceUrlProperties = new Properties();
 		}
 		// 获取接口路径地址
-		loadResource("interface_url.properties", classLoader);
+		loadResource("property/interface_url.properties", classLoader);
 		// 获取微信信息
-		loadResource("wechat.properties", classLoader);
+		loadResource("property/wechat.properties", classLoader);
 	}
 
 	/**

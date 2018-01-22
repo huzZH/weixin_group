@@ -3,8 +3,8 @@ package com.weixin.web.start;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.weixin.wechat.task.MenuTask;
-import com.weixin.wechat.task.WeChatTask;
+import com.weixin.web.task.MenuTask;
+import com.weixin.web.task.WeChatTask;
 
 /**
  * WeChat容器
