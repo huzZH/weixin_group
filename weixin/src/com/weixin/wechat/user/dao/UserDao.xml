@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weixin.wechat.user.dao.UserDao">
+
+
+	<resultMap id="user" type="com.weixin.wechat.user.bean.User">
+		<id property="id" column="id" />
+		<result property="openId" column="openid" />
+		<result property="nickName" column="nickname" />
+		<result property="sex" column="sex" />
+		<result property="city" column="city" />
+		<result property="country" column="country" />
+		<result property="province" column="province" />
+		<result property="language" column="language" />
+		<result property="headImgUrl" column="headimgurl" />
+		<result property="subScribe" column="subscribe" />
+		<result property="subScribeTime" column="subscribe_time" />
+		<result property="unionid" column="unionid" />
+		<result property="remark" column="remark" />
+		<result property="groupId" column="groupid" />
+		<result property="tagIdList" column="tagid_list" />
+
+	</resultMap>
+
+	<select id="selectUserById" parameterType="int" resultMap="user">
+		select * from user where openid=#{openid};
+	</select>
+	
+	<select id="selectUserList"  resultMap="user">
+		select * from user;
+	</select>
+
+</mapper>
